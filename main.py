@@ -87,4 +87,4 @@ try:
 
     main_screen()
 except Exception as ex:
-    print("Exception encountered: " + ex)
+    print("Exception encountered: " + str(ex))
