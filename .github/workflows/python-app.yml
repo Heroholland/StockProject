@@ -1,0 +1,37 @@
+name: Trading Bot
+
+on:
+  push:   # This job will run every time a push is made to the repository
+  schedule:
+    # This cron job runs every hour, you can modify it as needed
+    - cron: '0 13 * * 1-5'
+
+jobs:
+  execute-trading-script:
+    # The job will run on the latest Ubuntu virtual environment
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Check out repository
+      # This step checks out the repository where the code is located
+      uses: actions/checkout@v2
+
+    - name: Set up Python environment
+      # Set up the correct Python version for your script
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10'
+
+    - name: Install dependencies
+      # Install Python packages needed for your trading bot and other APIs
+      run: |
+        python -m pip install --upgrade pip
+        pip install alpaca-trade-api alpaca-py requests bs4 python-dotenv # Add your other API packages here
+
+    - name: Run trading script
+      # Run the trading script that contains your trading logic
+      run: python main.py
+      env:
+        BASE_URL: ${{ secrets.BASE_URL }}
+        ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+        ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
