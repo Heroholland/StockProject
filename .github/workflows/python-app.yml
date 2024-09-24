@@ -30,8 +30,8 @@ jobs:
 
     - name: Run trading script
       # Run the trading script that contains your trading logic
-      run: python tradingscript.py
+      run: python main.py
       env:
-        APCA_API_BASE_URL: ${{ secrets.BASE_URL }}
-        APCA_API_KEY_ID: ${{ secrets.ALPACA_API_KEY }}
-        APCA_API_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
+        BASE_URL: ${{ secrets.BASE_URL }}
+        ALPACA_API_KEY: ${{ secrets.ALPACA_API_KEY }}
+        ALPACA_SECRET_KEY: ${{ secrets.ALPACA_SECRET_KEY }}
