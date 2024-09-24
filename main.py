@@ -31,7 +31,7 @@ try:
          with open("assets.json", "r+") as f:
             config_data = json.loads(f.read())
             f.close()
-            config_data["buy:" + str(assetid)] = json.dumps(stock.__dict__)
+            config_data["buy:" + str(assetid)] = json.dumps(stock)
          with open("assets.json", "w") as f:
             f.write(json.dumps(config_data))
             f.close()
