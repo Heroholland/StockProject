@@ -52,7 +52,7 @@ try:
                     print("Bought", order.qty, "shares of the asset:", order.asset_id, trade["ticker"], trade["owner"], trade["relationship"], "Originally created at:", trade["secform"])
                     log_bought_stock(trade, order.asset_id)
                 except APIError as ex:
-                    print("Exception: " + ex)
+                    print("Exception: " + str(ex))
             else:
                 print("Balance is too low for " + str(amnt) + " shares of stock: " + str(trade["ticker"]))
 
