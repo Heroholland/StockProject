@@ -45,7 +45,7 @@ try:
                     order = api.submit_order(
                         symbol=trade["ticker"],
                         qty=amnt,  # fractional shares
-                        side='buy',
+                        side='sell',
                         type='market',
                         time_in_force='day',
                     )
